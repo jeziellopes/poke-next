@@ -1,29 +1,23 @@
-# Next.js + Jest
+# Poke-Next
 
-This example shows how to configure Jest to work with Next.js.
+Poke-Next is a __Next.js__ app to list and view __pokémon's__ information.
 
-This includes Next.js' built-in support for Global CSS, CSS Modules and TypeScript.
+This project uses __ESLint, Prettier, Jest, React Testing Library, TypeScript__.
 
-## How to Use
+## Run locally
 
-Quickly get started using [Create Next App](https://github.com/vercel/next.js/tree/canary/packages/create-next-app#readme)!
-
-In your terminal, run the following command:
+In your terminal, run the following commands:
 
 ```bash
-npx create-next-app --example with-jest with-jest-app
-```
+# install dependencies
+yarn
 
-```bash
-yarn create next-app --example with-jest with-jest-app
-```
-
-```bash
-pnpm create next-app --example with-jest with-jest-app
+# run app
+yarn dev
 ```
 
 ## Run Jest Tests
 
 ```bash
-npm test
+yarn test
 ```
