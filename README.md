@@ -2,7 +2,7 @@
 
 Poke-Next is a __Next.js__ app to list and view __pokémon's__ information.
 
-This project uses __ESLint, Prettier, Jest, React Testing Library, TypeScript__.
+This project uses __ESLint, Prettier, Jest, React Testing Library, TypeScript, Husky__.
 
 ## Run locally
 
