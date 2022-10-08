@@ -9,12 +9,14 @@
     "test": "jest --passWithNoTests",
     "test:watch": "npm test -- --watch",
     "test:ci": "CI=true npm test -- --coverage",
+    "test:coverage": "npm test -- --coverage",
     "test:staged": "npm test --findRelatedTests",
     "lint": "eslint src",
     "lint:fix": "eslint --fix src",
     "prepare": "husky install"
   },
   "dependencies": {
+    "dotenv": "^16.0.3",
     "next": "latest",
     "react": "^18.1.0",
     "react-dom": "^18.1.0"
