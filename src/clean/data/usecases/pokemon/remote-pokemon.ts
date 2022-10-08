@@ -1,12 +1,12 @@
-import { HttpPostClient } from '@/data/protocols/http/httpPostClient'
+import { HttpGetClient } from '@/data/protocols/http/http-get-client'
 
 export class RemotePokemon {
   constructor(
     private readonly url: string,
-    private readonly httpClient: HttpPostClient
+    private readonly httpClient: HttpGetClient
   ) {}
 
   async load(): Promise<void> {
-    await this.httpClient.post(this.url)
+    await this.httpClient.get(this.url)
   }
 }
