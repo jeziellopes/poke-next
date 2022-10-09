@@ -4,14 +4,14 @@ import {
   HttpStatusCode,
 } from '@/data/protocols/http/http-response'
 
-export class HttpGetClientSpy implements HttpGetClient {
+export class HttpGetClientSpy<T> implements HttpGetClient<T> {
   url?: string
   body?: object
-  response: HttpResponse = {
+  response: HttpResponse<T> = {
     statusCode: HttpStatusCode.ok,
   }
 
-  async get(url: string): Promise<HttpResponse> {
+  async get(url: string): Promise<HttpResponse<T>> {
     this.url = url
     return Promise.resolve(this.response)
   }
