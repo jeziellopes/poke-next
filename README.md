@@ -19,5 +19,9 @@ yarn dev
 ## Run Jest Tests
 
 ```bash
+# run tests once
 yarn test
+
+# run tests coverage
+yarn test:coverage
 ```
