@@ -14,10 +14,19 @@ const customJestConfig = {
     '^@/pages/(.*)$': '<rootDir>/src/pages/$1',
     '^@/data/(.*)$': '<rootDir>/src/clean/data/$1',
     '^@/domain/(.*)$': '<rootDir>/src/clean/domain/$1',
+    '^@/infra/(.*)$': '<rootDir>/src/clean/infra/$1',
   },
   testEnvironment: 'jest-environment-jsdom',
   setupFiles: ['./.jest/setEnvVars.js'],
 }
 
 // createJestConfig is exported this way to ensure that next/jest can load the Next.js config which is async
-module.exports = createJestConfig(customJestConfig)
+const asyncConfig = createJestConfig(customJestConfig)
+
+// using transformIgnorePatterns workaround by @HW13
+// https://github.com/vercel/next.js/discussions/31152#discussioncomment-1697047
+module.exports = async () => {
+  const config = await asyncConfig()
+  config.transformIgnorePatterns = ['/node_modules/(?!(axios)/)']
+  return config
+}
