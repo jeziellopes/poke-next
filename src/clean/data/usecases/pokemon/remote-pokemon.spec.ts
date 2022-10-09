@@ -1,10 +1,8 @@
-import { HttpStatusCode } from '@/data/protocols/http/http-response'
-import { HttpGetClientSpy } from '@/data/test/mock-http-client'
-import { mockPokemonResponse } from '@/data/test/mock-pokemon'
-import { RemotePokemon } from '@/data/usecases/pokemon/remote-pokemon'
-import { InternalServerError } from '@/domain/errors/internal-server-error'
-import { UnexpectedError } from '@/domain/errors/unexpected-error'
-import { PokemonModel } from '@/domain/models/pokemon-model'
+import { HttpStatusCode } from '@/data/protocols/http'
+import { HttpGetClientSpy, mockPokemonResponse } from '@/data/test'
+import { RemotePokemon } from '@/data/usecases/pokemon'
+import { InternalServerError, UnexpectedError } from '@/domain/errors'
+import { PokemonModel } from '@/domain/models'
 import { describe, expect, test } from '@jest/globals'
 
 type SutTypes = {

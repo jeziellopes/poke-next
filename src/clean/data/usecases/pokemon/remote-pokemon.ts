@@ -1,9 +1,7 @@
-import { HttpGetClient } from '@/data/protocols/http/http-get-client'
-import { HttpStatusCode } from '@/data/protocols/http/http-response'
-import { InternalServerError } from '@/domain/errors/internal-server-error'
-import { UnexpectedError } from '@/domain/errors/unexpected-error'
-import { PokemonModel } from '@/domain/models/pokemon-model'
-import { Pokemon } from '@/domain/usecases/pokemon'
+import { HttpGetClient, HttpStatusCode } from '@/data/protocols/http'
+import { InternalServerError, UnexpectedError } from '@/domain/errors'
+import { PokemonModel } from '@/domain/models'
+import { Pokemon } from '@/domain/usecases'
 
 export class RemotePokemon implements Pokemon {
   constructor(

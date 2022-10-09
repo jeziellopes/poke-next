@@ -1,4 +1,4 @@
-import { PokemonModel } from '@/domain/models/pokemon-model'
+import { PokemonModel } from '@/domain/models'
 
 export const mockPokemonResponse = (): PokemonModel[] => [
   {
