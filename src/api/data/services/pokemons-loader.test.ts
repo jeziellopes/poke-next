@@ -1,17 +1,10 @@
 import { PokemonsLoaderService } from '@/api/data/services'
 import { PokemonsLoaderPrismaDataSource } from '@/api/infra/datasources'
 import { ctx, mockCtx } from '@/api/infra/helpers'
+import { mockedPokemon } from '@/api/infra/helpers/mock'
 import { PokemonsLoaderPrismaRepository } from '@/api/infra/repositories'
-import { faker } from '@faker-js/faker'
 
-export const mockedPokemonsResult = [
-  {
-    id: faker.datatype.uuid(),
-    name: faker.random.word(),
-    likes: Number(faker.random.numeric()),
-    createdAt: faker.datatype.datetime(),
-  },
-]
+export const mockedPokemonsResult = [mockedPokemon]
 
 beforeEach(() => {
   mockCtx.prisma.pokemon.findMany.mockResolvedValue(mockedPokemonsResult)
