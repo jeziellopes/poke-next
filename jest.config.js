@@ -12,9 +12,10 @@ const customJestConfig = {
     // Handle module aliases (this will be automatically configured for you soon)
     '^@/components/(.*)$': '<rootDir>/src/components/$1',
     '^@/pages/(.*)$': '<rootDir>/src/pages/$1',
-    '^@/data/(.*)$': '<rootDir>/src/clean/data/$1',
-    '^@/domain/(.*)$': '<rootDir>/src/clean/domain/$1',
-    '^@/infra/(.*)$': '<rootDir>/src/clean/infra/$1',
+    '^@/data/(.*)$': '<rootDir>/src/app/data/$1',
+    '^@/domain/(.*)$': '<rootDir>/src/app/domain/$1',
+    '^@/infra/(.*)$': '<rootDir>/src/app/infra/$1',
+    '^@/presentation/(.*)$': '<rootDir>/src/app/presentation/$1',
     '^@/api/(.*)$': '<rootDir>/src/api/$1',
     '^@/prisma/(.*)$': '<rootDir>/prisma/$1',
   },
