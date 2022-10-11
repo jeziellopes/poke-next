@@ -1,6 +1,10 @@
-import '@/styles/global.css'
+import { ComposeProviders, ThemeProvider } from '@/presentation/providers'
 import type { AppProps } from 'next/app'
 
 export default function MyApp({ Component, pageProps }: AppProps) {
-  return <Component {...pageProps} />
+  return (
+    <ComposeProviders with={[ThemeProvider]}>
+      <Component {...pageProps} />
+    </ComposeProviders>
+  )
 }
