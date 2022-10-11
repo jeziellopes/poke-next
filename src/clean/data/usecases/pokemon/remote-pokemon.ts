@@ -14,6 +14,8 @@ export class RemotePokemon implements Pokemon {
 
     switch (httpResponse.statusCode) {
       case HttpStatusCode.ok:
+        // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+        // @ts-ignore:next-line
         return httpResponse.body
       case HttpStatusCode.server_error:
         throw new InternalServerError()
