@@ -25,3 +25,10 @@ yarn test
 # run tests coverage
 yarn test:coverage
 ```
+
+## How to start Prisma Locally
+
+```bash
+# Generate Prisma Client 
+yarn prisma:generate
+```
