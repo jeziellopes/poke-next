@@ -5,5 +5,5 @@ export type Pokemon = {
 }
 
 export type Props = {
-  children: React.ReactNode
+  children?: React.ReactNode
 }

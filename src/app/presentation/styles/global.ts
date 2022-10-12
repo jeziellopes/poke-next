@@ -15,8 +15,12 @@ export default createGlobalStyle`
 
   body {
     overflow-x: hidden;
-    overflow-y: hidden;
+    /* overflow-y: hidden; */
     overscroll-behavior-y: none;
+  }
+
+  main {
+    width: 100vw;
   }
 
   a {
