@@ -15,8 +15,10 @@ const customJestConfig = {
     '^@/domain/(.*)$': '<rootDir>/src/app/domain/$1',
     '^@/infra/(.*)$': '<rootDir>/src/app/infra/$1',
     '^@/presentation/(.*)$': '<rootDir>/src/app/presentation/$1',
+    '^@/main/(.*)$': '<rootDir>/src/app/main/$1',
     '^@/api/(.*)$': '<rootDir>/src/api/$1',
     '^@/prisma/(.*)$': '<rootDir>/prisma/$1',
+    '^@/components/(.*)$': '<rootDir>/src/app/presentation/components/$1',
   },
   coveragePathIgnorePatterns: [
     '<rootDir>/src/api/infra/helpers/',
