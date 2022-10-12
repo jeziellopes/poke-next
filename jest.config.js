@@ -18,7 +18,10 @@ const customJestConfig = {
     '^@/api/(.*)$': '<rootDir>/src/api/$1',
     '^@/prisma/(.*)$': '<rootDir>/prisma/$1',
   },
-  coveragePathIgnorePatterns: ['<rootDir>/src/api/infra/helpers/'],
+  coveragePathIgnorePatterns: [
+    '<rootDir>/src/api/infra/helpers/',
+    '<rootDir>/src/app/main/',
+  ],
   testEnvironment: 'jest-environment-jsdom',
   setupFiles: ['./.jest/setEnvVars.js'],
 }
