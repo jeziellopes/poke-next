@@ -13,7 +13,7 @@ export class AxiosHttpClient implements HttpGetClient {
 
     return {
       statusCode: httpResponse.status,
-      body: httpResponse.data,
+      body: httpResponse.data.results,
     }
   }
 }
