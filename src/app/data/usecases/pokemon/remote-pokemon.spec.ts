@@ -1,6 +1,6 @@
 import { HttpStatusCode } from '@/data/protocols/http'
 import { HttpGetClientSpy, mockPokemonResponse } from '@/data/test'
-import { RemotePokemon } from '@/data/usecases/pokemon'
+import { RemotePokemon } from '@/data/usecases'
 import { InternalServerError, UnexpectedError } from '@/domain/errors'
 import { PokemonModel } from '@/domain/models'
 import { describe, expect, test } from '@jest/globals'

@@ -9,9 +9,8 @@ export class RemotePokemon implements Pokemon {
     private readonly httpGetClient: HttpGetClient<PokemonModel[]>
   ) {}
 
-  async load(): Promise<PokemonModel[]> {
+  load = async (): Promise<PokemonModel[]> => {
     const httpResponse = await this.httpGetClient.get(this.url)
-
     switch (httpResponse.statusCode) {
       case HttpStatusCode.ok:
         // eslint-disable-next-line @typescript-eslint/ban-ts-comment
