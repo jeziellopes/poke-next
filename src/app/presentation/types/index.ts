@@ -15,6 +15,12 @@ export type IconProps = {
 }
 
 export type CardProps = {
+  children?: React.ReactNode
+  height?: number
+  width?: number
+}
+
+export type PokemonCardProps = {
   title: string
   description?: string
   imageUrl: string
