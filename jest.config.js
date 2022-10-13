@@ -24,6 +24,11 @@ const customJestConfig = {
   coveragePathIgnorePatterns: [
     '<rootDir>/src/api/infra/helpers/',
     '<rootDir>/src/app/main/',
+    '<rootDir>/src/app/presentation/contexts',
+    '<rootDir>/src/app/presentation/styles',
+    '<rootDir>/src/app/presentation/useCases',
+    '<rootDir>/src/app/presentation/providers',
+    '<rootDir>/src/app/presentation/components/context',
   ],
   testEnvironment: 'jest-environment-jsdom',
   setupFiles: ['./.jest/setEnvVars.js'],
