@@ -286,6 +286,7 @@ exports[`renders homepage unchanged 1`] = `
                 class="c10"
               >
                 <svg
+                  data-testid="prev-icon"
                   fill="none"
                   height="10"
                   viewBox="0 0 17 17"
@@ -311,6 +312,7 @@ exports[`renders homepage unchanged 1`] = `
                 class="c11"
               >
                 <svg
+                  data-testid="next-icon"
                   fill="none"
                   height="10"
                   viewBox="0 0 17 17"
