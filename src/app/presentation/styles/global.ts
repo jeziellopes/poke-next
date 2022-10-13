@@ -74,9 +74,6 @@ export default createGlobalStyle`
 
   button, button:hover, button:focus {
     border: none;
-    -webkit-box-shadow: none;
-    -moz-box-shadow: none;
-    box-shadow: none;
     outline: none;
   }
 `

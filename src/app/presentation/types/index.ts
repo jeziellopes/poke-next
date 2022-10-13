@@ -10,6 +10,12 @@ export type Props = {
   children?: React.ReactNode
 }
 
+export type ButtonProps = {
+  children?: React.ReactNode
+  disabled?: boolean
+  onClick?: () => void
+}
+
 export type IconProps = {
   size?: number
 }

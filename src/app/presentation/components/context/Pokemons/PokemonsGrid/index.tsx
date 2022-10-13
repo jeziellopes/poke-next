@@ -1,4 +1,8 @@
-import { PokemonCard } from '@/components/context'
+import {
+  Pagination,
+  PaginationWrapper,
+  PokemonCard,
+} from '@/components/context'
 import { Grid } from '@/components/structure'
 import { usePokemonsContext } from '@/presentation/contexts'
 import { getPokemonImgUrl } from '@/presentation/utils'
@@ -20,6 +24,9 @@ export const PokemonsGrid = () => {
           />
         ))}
       </Grid>
+      <PaginationWrapper>
+        <Pagination />
+      </PaginationWrapper>
     </S.Container>
   )
 }

@@ -1,3 +1,6 @@
 export * from '@/presentation/components/context/Layout'
 export * from '@/presentation/components/context/Pokemons/PokemonsGrid'
 export * from '@/presentation/components/context/Pokemons/PokemonCard'
+export * from '@/presentation/components/context/Pagination/PaginationButton'
+export * from '@/presentation/components/context/Pagination/Pagination'
+export * from '@/presentation/components/context/Pagination/PaginationWrapper'
