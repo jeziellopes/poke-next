@@ -6,7 +6,7 @@ export const theme = {
     },
   },
   font: {
-    primary: 'JetBrains Mono',
+    primary: 'Roboto Mono',
   },
   shadow: {
     navbar: '0px 8px 8px 0px rgba(27, 27, 27, 0.11)',
