@@ -1,19 +1,27 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`renders homepage unchanged 1`] = `
-.c4 {
+.c6 {
   display: grid;
   -webkit-flex-flow: row wrap;
   -ms-flex-flow: row wrap;
   flex-flow: row wrap;
   grid-gap: 16px;
-  grid-template-columns: repeat(auto-fit,minmax(300px,1fr));
+  grid-template-columns: repeat(auto-fit,minmax(200px,1fr));
   padding: 24px 2em;
 }
 
 .c1 {
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
   background: #f8d02f;
   box-shadow: 0px 8px 8px 0px rgba(27,27,27,0.11);
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
   height: 80px;
   padding: 0 40px;
   position: fixed;
@@ -26,36 +34,151 @@ exports[`renders homepage unchanged 1`] = `
   width: 100vw;
 }
 
-.c2 {
-  font-family: JetBrains Mono;
+.c3 {
+  font-family: Roboto Mono;
+  margin: 0;
 }
 
-.c3 {
+.c5 {
+  -webkit-box-pack: start;
+  -webkit-justify-content: flex-start;
+  -ms-flex-pack: start;
+  justify-content: flex-start;
   margin-top: 80px;
   width: 100vw;
 }
 
+.c4 {
+  height: 40px;
+  margin-right: 16px;
+  position: fixed;
+  right: 8px;
+  top: calc((80px - 24px) / 2);
+  width: 40px;
+}
+
+.c4 svg {
+  cursor: pointer;
+  -webkit-transition: -webkit-transform 0.2s cubic-bezier(0.215,0.61,0.355,1);
+  -webkit-transition: transform 0.2s cubic-bezier(0.215,0.61,0.355,1);
+  transition: transform 0.2s cubic-bezier(0.215,0.61,0.355,1);
+}
+
+.c4 svg:hover {
+  -webkit-transform: scale(1.2);
+  -ms-transform: scale(1.2);
+  transform: scale(1.2);
+}
+
+.c2 {
+  cursor: pointer;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  height: 80px;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  margin-right: 16px;
+}
+
+.c2 svg {
+  -webkit-transition: -webkit-transform 0.2s cubic-bezier(0.215,0.61,0.355,1);
+  -webkit-transition: transform 0.2s cubic-bezier(0.215,0.61,0.355,1);
+  transition: transform 0.2s cubic-bezier(0.215,0.61,0.355,1);
+}
+
+.c2:hover svg {
+  -webkit-transform: rotate(180deg);
+  -ms-transform: rotate(180deg);
+  transform: rotate(180deg);
+}
+
 <div>
-  <div
-    class="container"
-  >
+  <div>
     <div
       class="c0"
     >
       <div
         class="c1"
       >
-        <h1
+        <div
           class="c2"
+          size="80"
+        >
+          <svg
+            data-testid="poke-ball-icon"
+            fill="none"
+            height="40"
+            viewBox="0 0 512 512"
+            width="40"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M256.85 340.298c-40.44 0-74.172-28.633-82.18-66.678H40.138c9.51 110.63 102.3 197.432 215.311 197.432 113.01 0 205.901-86.802 215.31-197.432H339.03c-8.008 38.145-41.741 66.678-82.18 66.678z"
+              fill="#fff"
+            />
+            <path
+              d="M304.897 465.445c89.687-21.025 157.854-97.815 165.862-191.825h-53.052c-5.305 85.3-50.049 157.585-112.81 191.825z"
+              fill="#DFDFDF"
+            />
+            <path
+              d="M306.398 256.3c-.1 0-.1 0 0 0-.1-6.107-1.201-11.914-3.203-17.32-7.007-18.822-25.124-32.138-46.345-32.138s-39.338 13.416-46.345 32.138a49.662 49.662 0 00-3.103 17.32h.1a49.662 49.662 0 003.103 17.32c7.007 18.822 25.124 32.138 46.345 32.138s39.338-13.416 46.345-32.138c2.002-5.306 3.103-11.213 3.103-17.32z"
+              fill="#fff"
+            />
+            <path
+              d="M256.95 172.402c40.44 0 74.172 28.633 82.18 66.678h134.532c-9.51-110.73-102.3-197.532-215.411-197.532-113.11 0-205.8 86.802-215.31 197.432H174.77c8.008-38.045 41.741-66.578 82.18-66.578z"
+              fill="#FF1C1C"
+            />
+            <path
+              d="M417.707 238.98h55.855c-8.208-95.612-78.677-173.504-170.667-192.826 63.862 33.74 109.407 106.725 114.812 192.826z"
+              fill="#DF1818"
+            />
+            <path
+              d="M258.251 41.548c113.111 0 205.901 86.802 215.311 197.432H339.03c-8.008-38.045-41.741-66.678-82.18-66.678-40.44 0-74.172 28.633-82.18 66.678H42.941c9.51-110.63 102.3-197.432 215.31-197.432zm44.944 197.432a49.662 49.662 0 013.103 17.32h.1a49.662 49.662 0 01-3.103 17.32c-7.007 18.822-25.124 32.138-46.345 32.138s-39.338-13.416-46.345-32.138a49.662 49.662 0 01-3.103-17.32h-.1a49.662 49.662 0 013.103-17.32c7.007-18.822 25.124-32.138 46.345-32.138s39.338 13.416 46.345 32.138zm-47.746 232.172c-113.111 0-205.901-86.802-215.31-197.432H174.67c8.008 38.045 41.74 66.679 82.18 66.679 40.439 0 74.172-28.634 82.18-66.679h131.829c-9.509 110.53-102.3 197.432-215.41 197.432zM256.85.3C115.512.3.9 114.934.9 256.3c0 141.366 114.612 256 255.95 256s256.05-114.534 256.05-256S398.288.3 256.85.3z"
+              fill="#000"
+            />
+          </svg>
+        </div>
+        <h1
+          class="c3"
         >
           Poke-Next
         </h1>
+        <a
+          href="https://github.com/jeziellopes/poke-next"
+          rel="noopener noreferrer"
+          target="_blank"
+        >
+          <div
+            class="c4"
+            size="40"
+          >
+            <svg
+              data-testid="github-icon"
+              fill="#1c2128"
+              height="24"
+              viewBox="0 0 24 24"
+              width="24"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M12 0C5.374 0 0 5.373 0 12c0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23A11.509 11.509 0 0112 5.803c1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576C20.566 21.797 24 17.3 24 12c0-6.627-5.373-12-12-12z"
+              />
+            </svg>
+          </div>
+        </a>
       </div>
       <div
-        class="c3"
+        class="c5"
       >
         <div
-          class="c4"
+          class="c6"
         />
       </div>
     </div>
