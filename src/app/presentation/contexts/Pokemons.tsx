@@ -1,7 +1,16 @@
+import { POKEMONS_PER_PAGE_LIMIT } from '@/main/config'
 import * as T from '@/presentation/types'
 import { loadPokemons } from '@/presentation/useCases'
 import { PokemonModel } from '@/presentation/view-models'
-import { createContext, useContext, useEffect, useState } from 'react'
+import {
+  createContext,
+  useCallback,
+  useContext,
+  useEffect,
+  useState,
+} from 'react'
+
+import { usePaginationContext } from './Pagination'
 
 export type PokemonsContextType = {
   error: boolean
@@ -19,6 +28,9 @@ export const PokemonsProvider = ({ children }: T.Props) => {
   const [error, setError] = useState(false)
   const [loading, setLoading] = useState(false)
   const [pokemons, setPokemons] = useState<PokemonModel[] | null>(null)
+  const [offset, setOffset] = useState('0')
+  const [limit] = useState(POKEMONS_PER_PAGE_LIMIT)
+  const { page } = usePaginationContext()
 
   useEffect(() => {
     if (pokemons) return
@@ -27,12 +39,21 @@ export const PokemonsProvider = ({ children }: T.Props) => {
     return () => clearTimeout(timer)
   })
 
-  const fetchPokemons = async () => {
-    loadPokemons()
+  useEffect(
+    () => setOffset(String((page - 1) * Number(POKEMONS_PER_PAGE_LIMIT))),
+    [page]
+  )
+
+  useEffect(() => {
+    fetchPokemons()
+  }, [offset])
+
+  const fetchPokemons = useCallback(async () => {
+    loadPokemons({ offset, limit })
       .then(setPokemons)
       .catch(() => setError(true))
       .finally(() => setLoading(false))
-  }
+  }, [offset])
 
   return (
     <PokemonsContext.Provider
