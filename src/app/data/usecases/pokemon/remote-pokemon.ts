@@ -1,7 +1,7 @@
 import { HttpGetClient, HttpStatusCode } from '@/data/protocols/http'
 import { InternalServerError, UnexpectedError } from '@/domain/errors'
 import { PokemonModel } from '@/domain/models'
-import { Pokemon } from '@/domain/usecases'
+import { Pokemon, RemotePokemonParams } from '@/domain/usecases'
 
 export class RemotePokemon implements Pokemon {
   constructor(
@@ -9,8 +9,10 @@ export class RemotePokemon implements Pokemon {
     private readonly httpGetClient: HttpGetClient<PokemonModel[]>
   ) {}
 
-  load = async (): Promise<PokemonModel[]> => {
-    const httpResponse = await this.httpGetClient.get(this.url)
+  load = async (params: RemotePokemonParams): Promise<PokemonModel[]> => {
+    const httpResponse = await this.httpGetClient.get(
+      `${this.url}?${new URLSearchParams(params)}`
+    )
     switch (httpResponse.statusCode) {
       case HttpStatusCode.ok:
         // eslint-disable-next-line @typescript-eslint/ban-ts-comment
