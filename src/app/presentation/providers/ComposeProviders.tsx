@@ -11,7 +11,7 @@ export const ComposeProviders = ({
 }: IComposeProvidersProps) => {
   return (
     <>
-      {Providers.reduce(
+      {Providers.reduceRight(
         (ComposedProviders, ParentProvider) => (
           <ParentProvider>{ComposedProviders}</ParentProvider>
         ),
