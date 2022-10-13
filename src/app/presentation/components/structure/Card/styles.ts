@@ -1,18 +1,12 @@
+import { StyledProps, CardStyledProps } from '@/presentation/types'
 import {
   fadeAnimations,
   scaleAnimations,
   shadowAnimations,
 } from '@/styles/animations'
-import styled, { css, DefaultTheme } from 'styled-components'
+import styled, { css } from 'styled-components'
 
-export type Props = {
-  theme: DefaultTheme
-  height?: number
-  width?: number
-  size?: number
-}
-
-export const Container = styled.div<Props>`
+export const Container = styled.div<CardStyledProps>`
   ${({ theme, height }) => css`
     background: ${theme.colors.main.primary};
     border-radius: 4px;
@@ -35,25 +29,24 @@ export const Container = styled.div<Props>`
   `}
 `
 
-export const Content = styled.div<Props>`
+export const Content = styled.div<StyledProps>`
   display: flex;
   flex-direction: column;
   padding: 8px;
 `
 
-export const Title = styled.h5<Props>`
+export const Title = styled.h5<StyledProps>`
   ${({ theme }) => css`
     color: ${theme.colors.main.light};
     display: flex;
     font-family: ${theme.font.primary};
     font-size: 12px;
     font-weight: 600;
-    font-weight: 500;
     line-height: 32px;
   `}
 `
 
-export const Description = styled.span<Props>`
+export const Description = styled.span<StyledProps>`
   ${({ theme }) => css`
     color: ${theme.colors.main.light};
     display: flex;

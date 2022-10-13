@@ -1,8 +1,6 @@
-import * as S from './styles'
+import { Props } from '@/presentation/types'
 
-type Props = {
-  children: React.ReactNode
-}
+import * as S from './styles'
 
 export const Grid = ({ children, ...props }: Props) => {
   return <S.Container {...props}>{children}</S.Container>

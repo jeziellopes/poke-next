@@ -1,18 +1,9 @@
+import { CardProps } from '@/presentation/types'
 import { capitalize } from '@/presentation/utils'
 
 import * as S from './styles'
 
-type Props = {
-  title: string
-  description?: string
-  imageUrl: string
-  height?: number
-  width?: number
-  url?: string
-  onClick?: () => void
-}
-
-export const Card = ({ title, description, imageUrl, ...props }: Props) => {
+export const Card = ({ title, description, imageUrl, ...props }: CardProps) => {
   return (
     <S.Container {...props}>
       <S.Content>

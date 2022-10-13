@@ -1,3 +1,5 @@
+import { DefaultTheme } from 'styled-components'
+
 export type Pokemon = {
   id: string
   name: string
@@ -11,3 +13,21 @@ export type Props = {
 export type IconProps = {
   size?: number
 }
+
+export type CardProps = {
+  title: string
+  description?: string
+  imageUrl: string
+  height?: number
+  width?: number
+  url?: string
+  onClick?: () => void
+}
+
+export type StyledProps = {
+  theme: DefaultTheme
+}
+
+export type CardStyledProps = {
+  height?: number
+} & StyledProps
