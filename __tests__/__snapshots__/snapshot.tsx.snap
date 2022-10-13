@@ -172,13 +172,11 @@ exports[`renders homepage unchanged 1`] = `
   display: -ms-flexbox;
   display: flex;
   height: 40px;
-  -webkit-box-pack: end;
-  -webkit-justify-content: flex-end;
-  -ms-flex-pack: end;
-  justify-content: flex-end;
-  margin-right: 2em;
-  margin-top: 40px;
-  width: 400px;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  margin: 0px 16px 24px;
 }
 
 .c7 {
@@ -186,10 +184,11 @@ exports[`renders homepage unchanged 1`] = `
   display: -webkit-flex;
   display: -ms-flexbox;
   display: flex;
-  -webkit-box-pack: end;
-  -webkit-justify-content: flex-end;
-  -ms-flex-pack: end;
-  justify-content: flex-end;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  width: 100vw;
 }
 
 <div>

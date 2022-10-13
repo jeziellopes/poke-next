@@ -3,5 +3,6 @@ import styled from 'styled-components'
 
 export const Container = styled.div<CardStyledProps>`
   display: flex;
-  justify-content: flex-end;
+  justify-content: center;
+  width: 100vw;
 `
