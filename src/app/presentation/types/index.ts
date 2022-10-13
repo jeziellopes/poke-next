@@ -7,3 +7,7 @@ export type Pokemon = {
 export type Props = {
   children?: React.ReactNode
 }
+
+export type IconProps = {
+  size?: number
+}

@@ -1,11 +1,11 @@
 import { PokemonsGrid } from '@/components/context'
+import { PokeBallIcon, GithubIcon } from '@/components/icons'
 import { Main, Header, Title } from '@/components/structure'
-import styles from '@/pages/index.module.css'
 import Head from 'next/head'
 
 export default function Home() {
   return (
-    <div className={styles.container}>
+    <div>
       <Head>
         <title>Poke-Next | Home</title>
         <link rel="icon" href="/favicon.ico" />
@@ -13,7 +13,15 @@ export default function Home() {
 
       <Main>
         <Header>
+          <PokeBallIcon size={40} />
           <Title>Poke-Next</Title>
+          <a
+            href="https://github.com/jeziellopes/poke-next"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <GithubIcon size={24} />
+          </a>
         </Header>
         <PokemonsGrid />
       </Main>

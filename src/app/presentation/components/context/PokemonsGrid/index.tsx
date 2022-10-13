@@ -1,23 +1,11 @@
 import { Card, Grid } from '@/components/structure'
 import { usePokemonsContext } from '@/presentation/contexts'
+import { getPokemonImgUrl } from '@/presentation/utils'
 
 import * as S from './styles'
 
 export const PokemonsGrid = () => {
   const { pokemons } = usePokemonsContext()
-
-  const getImgUrl = (url: string) => {
-    const split1 = url.split('pokemon/').pop()
-
-    if (split1) {
-      const id = split1.replace('/', '')
-      const padId = String(id).padStart(3, '0')
-      console.log({ split1, id, padId })
-      return `https://raw.githubusercontent.com/HybridShivam/Pokemon/master/assets/images/${padId}.png`
-    }
-
-    return ''
-  }
 
   return (
     <S.Container>
@@ -26,9 +14,8 @@ export const PokemonsGrid = () => {
           <Card
             key={key}
             title={pokemon.name}
-            imageUrl={getImgUrl(pokemon.url)}
-            // width={300}
-            height={400}
+            imageUrl={getPokemonImgUrl(pokemon.url)}
+            height={280}
           />
         ))}
       </Grid>
