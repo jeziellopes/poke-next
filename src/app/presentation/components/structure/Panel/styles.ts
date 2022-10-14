@@ -20,6 +20,7 @@ export const Container = styled.div<CardStyledProps>`
     @media only screen and (max-width: 1000px) {
       flex-direction: column;
       justify-content: space-between;
+      height: auto;
     }
 
     @media only screen and (max-width: 500px) {

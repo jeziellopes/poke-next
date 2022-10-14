@@ -11,6 +11,7 @@ export const Container = styled.div<CardProps>`
 
   @media only screen and (max-width: 500px) {
     padding: 8px;
+    height: auto;
   }
 `
 
@@ -47,7 +48,7 @@ export const InfoWrapper = styled.div`
 
     @media only screen and (max-width: 1000px) {
       border-radius: 0 0 16px 16px;
-      height: 50%;
+      height: auto;
     }
   `}
 `
