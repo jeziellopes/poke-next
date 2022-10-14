@@ -3,6 +3,8 @@ export const theme = {
     main: {
       background: '#FFF',
       primary: '#f8d02f',
+      light: '#FFF',
+      dark: '#333',
     },
   },
   font: {

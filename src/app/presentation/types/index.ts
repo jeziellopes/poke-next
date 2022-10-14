@@ -24,22 +24,35 @@ export type CardProps = {
   children?: React.ReactNode
   height?: number
   width?: number
+  color?: string
 }
 
 export type PokemonCardProps = {
   title: string
-  description?: string
+  types?: string[]
   imageUrl: string
   height?: number
   width?: number
   url?: string
+  colors?: {
+    light: string
+    medium: string
+  }
   onClick?: () => void
 }
 
 export type StyledProps = {
   theme: DefaultTheme
+  color?: string
 }
 
 export type CardStyledProps = {
   height?: number
 } & StyledProps
+
+export type PokemonTypeColors = {
+  [key: string]: {
+    light: string
+    medium: string
+  }
+}

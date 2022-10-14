@@ -10,15 +10,16 @@ import { getPokemonImgUrl } from '@/presentation/utils'
 import * as S from './styles'
 
 export const PokemonsGrid = () => {
-  const { pokemons } = usePokemonsContext()
+  const { pokemonsDetails } = usePokemonsContext()
 
   return (
     <S.Container>
       <Grid>
-        {pokemons?.map((pokemon, key) => (
+        {(pokemonsDetails || []).map((pokemon, key) => (
           <PokemonCard
             key={key}
             title={pokemon.name}
+            types={pokemon.types || []}
             imageUrl={getPokemonImgUrl(pokemon.url)}
             height={280}
           />

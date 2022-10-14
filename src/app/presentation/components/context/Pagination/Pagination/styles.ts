@@ -6,5 +6,5 @@ export const Container = styled.div`
   display: flex;
   height: 40px;
   justify-content: center;
-  margin: 0px 16px 24px;
+  margin: 16px 16px 24px;
 `
