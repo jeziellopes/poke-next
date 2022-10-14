@@ -48,7 +48,7 @@ describe('RemotePokemonLikes', () => {
     await expect(promise).rejects.toThrow(new UnexpectedError())
   })
 
-  test('Should return PokemonLikesModel when HttpGetClient gets statusCode 200', async () => {
+  test('Should return PokemonLikesModel array when HttpGetClient gets statusCode 200', async () => {
     const { sut, httpGetClientSpy } = makeSut()
     const httpResponse = mockPokemonLikesResponse()
     httpGetClientSpy.response = {
