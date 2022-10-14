@@ -15,11 +15,12 @@ export const PokemonCard = ({
   imageUrl,
   likes,
   onLike,
+  onClick,
   ...props
 }: PokemonCardProps) => {
   return (
     <Card {...props} color={types && pokemonsColors[types[0]].light}>
-      <S.ImageWrapper>
+      <S.ImageWrapper onClick={onClick}>
         <S.CardHeader>
           <S.HeaderText>{`#${id}`}</S.HeaderText>
           <S.HeaderText bgColor={types && pokemonsColors[types[0]].light}>
