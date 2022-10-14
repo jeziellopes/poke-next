@@ -1,15 +1,15 @@
 import { HttpGetClient, HttpStatusCode } from '@/data/protocols/http'
 import { InternalServerError, UnexpectedError } from '@/domain/errors'
-import { PokemonModel } from '@/domain/models'
-import { Pokemon, RemotePokemonParams } from '@/domain/usecases'
+import { PokemonResponseModel } from '@/domain/models'
+import { Pokemon, PokemonParams } from '@/domain/usecases'
 
 export class RemotePokemon implements Pokemon {
   constructor(
     private readonly url: string,
-    private readonly httpGetClient: HttpGetClient<PokemonModel[]>
+    private readonly httpGetClient: HttpGetClient<PokemonResponseModel>
   ) {}
 
-  load = async (params: RemotePokemonParams): Promise<PokemonModel[]> => {
+  load = async (params: PokemonParams): Promise<PokemonResponseModel> => {
     const httpResponse = await this.httpGetClient.get(
       `${this.url}?${new URLSearchParams(params)}`
     )

@@ -1,9 +1,9 @@
-import { PokemonModel } from '@/domain/models/pokemon-model'
+import { PokemonResponseModel } from '@/domain/models'
 
-export type RemotePokemonParams = {
+export type PokemonParams = {
   offset: string
   limit: string
 }
 export interface Pokemon {
-  load(params: RemotePokemonParams): Promise<PokemonModel[]>
+  load(params: PokemonParams): Promise<PokemonResponseModel>
 }
