@@ -17,7 +17,7 @@ export const InfoWrapper = styled.div`
   ${({ theme }) => css`
     background: ${theme.colors.main.light};
     border-radius: 0px 0px 4px 4px;
-    height: 30%;
+    height: 35%;
     padding: 8px 16px;
     width: 100%;
   `}
@@ -42,11 +42,43 @@ export const ImageWrapper = styled.div`
   align-items: center;
   display: flex;
   flex-direction: column;
-  height: 70%;
+  height: 65%;
   justify-content: center;
 `
 
 export const Image = styled.img`
   height: 150px;
   width: 150px;
+`
+
+export const LikeContainer = styled.div``
+
+export const Row = styled.div`
+  display: flex;
+  justify-content: space-between;
+`
+
+export const Col = styled.div`
+  display: flex;
+  flex-direction: column;
+`
+
+export const LikeButton = styled.button`
+  border-radius: 20px;
+  cursor: pointer;
+  height: 40px;
+  padding: 0;
+  width: 40px;
+
+  svg {
+    transition: transform 0.2s cubic-bezier(0.215, 0.61, 0.355, 1);
+
+    &:hover {
+      transform: scale(1.1);
+    }
+
+    &:active {
+      transform: scale(1.2);
+    }
+  }
 `

@@ -1,9 +1,9 @@
-import * as T from '@/presentation/types'
+import { IconProps } from '@/presentation/types'
 import React from 'react'
 
 import * as S from './styles'
 
-const Icon = ({ size, ...props }: T.IconProps) => {
+const Icon = ({ size, ...props }: IconProps) => {
   return (
     <S.IconWrapper size={40}>
       <svg

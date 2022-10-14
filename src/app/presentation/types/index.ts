@@ -18,6 +18,7 @@ export type ButtonProps = {
 
 export type IconProps = {
   size?: number
+  color?: string
 }
 
 export type CardProps = {

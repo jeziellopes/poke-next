@@ -1,3 +1,4 @@
+import { LikeIcon } from '@/components/icons'
 import { Card } from '@/components/structure'
 import { PokemonCardProps } from '@/presentation/types'
 import { capitalize } from '@/presentation/utils'
@@ -18,17 +19,29 @@ export const PokemonCard = ({
         <S.Image src={imageUrl} alt="Card image" />
       </S.ImageWrapper>
       <S.InfoWrapper>
-        <S.Title>{capitalize(title)}</S.Title>
-        <S.DescriptionContainer>
-          {(types || []).slice(0, 2).map((type, key) => (
-            <S.Description
-              key={key}
-              color={types && pokemonsColors[type].medium}
-            >
-              {type}
-            </S.Description>
-          ))}
-        </S.DescriptionContainer>
+        <S.Row>
+          <S.Title>{capitalize(title)}</S.Title>
+          <S.LikeContainer>
+            <S.LikeButton>
+              <LikeIcon
+                size={40}
+                color={types && pokemonsColors[types[0]].light}
+              />
+            </S.LikeButton>
+          </S.LikeContainer>
+        </S.Row>
+        <S.Row>
+          <S.DescriptionContainer>
+            {(types || []).slice(0, 2).map((type, key) => (
+              <S.Description
+                key={key}
+                color={types && pokemonsColors[type].medium}
+              >
+                {type}
+              </S.Description>
+            ))}
+          </S.DescriptionContainer>
+        </S.Row>
       </S.InfoWrapper>
     </Card>
   )
