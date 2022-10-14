@@ -6,8 +6,8 @@ export default async (req: NextApiRequest, res: NextApiResponse) => {
 
   try {
     const data = await pokemonsLoaderService.load()
-    res.status(200).json({ statusCode: 200, data })
+    res.status(200).json(data)
   } catch (error) {
-    res.status(400).json({ statusCode: 400, error: error.message })
+    res.status(400).json(error.message)
   }
 }

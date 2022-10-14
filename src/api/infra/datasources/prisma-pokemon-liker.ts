@@ -9,7 +9,7 @@ export class PokemonLikerPrismaDataSource implements PokemonLikerDataSource {
 
   async createOrUpdate(params: PokemonLikerParams) {
     return this.prismaClient.pokemon.upsert({
-      where: { id: params.id },
+      where: { pokemonId: params.id },
       update: { likes: { increment: 1 } },
       create: {
         pokemonId: params.id,
