@@ -3,13 +3,14 @@ generator client {
 }
 
 datasource db {
-  provider = "mongodb"
+  provider = "postgresql"
   url      = env("DATABASE_URL")
 }
 
 model Pokemon {
-  id        String   @id @default(auto()) @map("_id") @db.ObjectId
+  id        Int      @id @default(autoincrement())
   createdAt DateTime @default(now())
-  name      String   @unique
+  updatedAt DateTime @updatedAt
+  pokemonId Int      @unique
   likes     Int
 }

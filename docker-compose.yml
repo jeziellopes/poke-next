@@ -12,17 +12,27 @@ services:
     networks:
       - poke_next_net
 
-  mongo:
+  postgres:
+    image: postgres:alpine3.16
     restart: always
     container_name: poke_next_db
-    image: mongo:latest
     environment:
-      MONGO_INITDB_ROOT_USERNAME: $DB_ROOT_USER
-      MONGO_INITDB_ROOT_PASSWORD: $DB_ROOT_PASSWORD
+      POSTGRES_DB: 'pokenext'
+      POSTGRES_USER: $DB_ROOT_USER
+      POSTGRES_PASSWORD: $DB_ROOT_PASSWORD
+      POSTGRES_ROOT_PASSWORD: 'adminpass@root'
+      PGDATA: /data/postgres
+      TZ: 'UTC'
+    logging:
+      options:
+        max-size: 10m
+        max-file: '3'
     ports:
-      - 27027:27017
+      - '5432:5432'
+    expose:
+      - '5432'
     volumes:
-      - poke_next_db_data:/data/db
+      - poke_next_db_data:/data/postgres
     networks:
       - poke_next_net
 
