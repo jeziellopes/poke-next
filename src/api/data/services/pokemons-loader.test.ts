@@ -1,10 +1,10 @@
 import { PokemonsLoaderService } from '@/api/data/services'
 import { PokemonsLoaderPrismaDataSource } from '@/api/infra/datasources'
 import { ctx, mockCtx } from '@/api/infra/helpers'
-import { mockedPokemon } from '@/api/infra/helpers/mock'
 import { PokemonsLoaderPrismaRepository } from '@/api/infra/repositories'
+import { mockPokemon } from '@/api/infra/test'
 
-export const mockedPokemonsResult = [mockedPokemon]
+export const mockedPokemonsResult = [mockPokemon()]
 
 beforeEach(() => {
   mockCtx.prisma.pokemon.findMany.mockResolvedValue(mockedPokemonsResult)
