@@ -29,6 +29,7 @@ export type CardProps = {
 }
 
 export type PokemonCardProps = {
+  id: string
   title: string
   types?: string[]
   imageUrl: string
@@ -39,12 +40,14 @@ export type PokemonCardProps = {
     light: string
     medium: string
   }
+  likes?: number
   onClick?: () => void
 }
 
 export type StyledProps = {
   theme: DefaultTheme
   color?: string
+  bgColor?: string
 }
 
 export type CardStyledProps = {

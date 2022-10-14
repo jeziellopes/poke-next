@@ -1,6 +1,13 @@
 import { StyledProps } from '@/presentation/types'
 import styled, { css } from 'styled-components'
 
+export const CardHeader = styled.div`
+  display: flex;
+  justify-content: space-between;
+  padding: 8px 16px;
+  width: 100%;
+`
+
 export const Title = styled.h5<StyledProps>`
   ${({ theme }) => css`
     color: ${theme.colors.main.dark};
@@ -34,6 +41,7 @@ export const Description = styled.span<StyledProps>`
     font-family: ${theme.font.primary};
     font-size: 15px;
     font-weight: 400;
+    line-height: 15px;
     margin: 0px 8px 0 0;
   `}
 `
@@ -81,4 +89,18 @@ export const LikeButton = styled.button`
       transform: scale(1.2);
     }
   }
+`
+
+export const HeaderText = styled.span<StyledProps>`
+  ${({ theme, color }) => css`
+    background-color: ${theme.colors.main.light}20;
+    border-radius: 4px;
+    color: ${color || theme.colors.main.light};
+    display: flex;
+    font-family: ${theme.font.primary};
+    font-size: 10px;
+    font-weight: 500;
+    margin: 8px 0;
+    padding: 4px;
+  `}
 `

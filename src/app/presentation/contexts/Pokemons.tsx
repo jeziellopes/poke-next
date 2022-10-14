@@ -1,7 +1,17 @@
 import { POKEMONS_PER_PAGE_LIMIT } from '@/main/config'
+import { usePaginationContext } from '@/presentation/contexts/Pagination'
 import * as T from '@/presentation/types'
-import { loadPokemons, loadPokemonsDetails } from '@/presentation/useCases'
-import { PokemonViewModel } from '@/presentation/view-models'
+import {
+  likePokemon,
+  loadPokemons,
+  loadPokemonsDetails,
+  loadPokemonsLikes,
+} from '@/presentation/useCases'
+import { getPokemonIdFromUrl } from '@/presentation/utils'
+import {
+  PokemonViewModel,
+  PokemonLikesViewModel,
+} from '@/presentation/view-models'
 import {
   createContext,
   useCallback,
@@ -10,15 +20,15 @@ import {
   useState,
 } from 'react'
 
-import { getPokemonIdFromUrl } from '../utils'
-import { usePaginationContext } from './Pagination'
-
 export type PokemonsContextType = {
   error: boolean
   loading: boolean
   count: number
   pokemons: PokemonViewModel[] | null
   pokemonsDetails: PokemonViewModel[] | null
+  pokemonsLikes: Record<number, PokemonLikesViewModel> | null
+  handleLikePokemon: (id: string) => void
+  getPokemonLikes: (pokemon: PokemonViewModel) => number
 }
 
 export const PokemonsContext = createContext<PokemonsContextType>({
@@ -27,6 +37,9 @@ export const PokemonsContext = createContext<PokemonsContextType>({
   count: 0,
   pokemons: null,
   pokemonsDetails: null,
+  pokemonsLikes: null,
+  handleLikePokemon: () => undefined,
+  getPokemonLikes: () => 0,
 })
 
 export const PokemonsProvider = ({ children }: T.Props) => {
@@ -37,6 +50,11 @@ export const PokemonsProvider = ({ children }: T.Props) => {
   const [pokemonsDetails, setPokemonsDetails] = useState<
     PokemonViewModel[] | null
   >(null)
+  const [pokemonsLikes, setPokemonsLikes] = useState<Record<
+    number,
+    PokemonLikesViewModel
+  > | null>(null)
+
   const [offset, setOffset] = useState('0')
   const [limit] = useState(POKEMONS_PER_PAGE_LIMIT)
   const { page } = usePaginationContext()
@@ -74,6 +92,7 @@ export const PokemonsProvider = ({ children }: T.Props) => {
 
   useEffect(() => {
     fetchPokemonsDetails()
+    fetchPokemonsLikes()
   }, [pokemons])
 
   const fetchPokemonsDetails = useCallback(async () => {
@@ -86,6 +105,47 @@ export const PokemonsProvider = ({ children }: T.Props) => {
     }
   }, [pokemons])
 
+  const fetchPokemonsLikes = useCallback(async () => {
+    if (pokemons) {
+      const pokemonsLikes = await loadPokemonsLikes()
+
+      if (pokemonsLikes) {
+        setPokemonsLikes(
+          pokemonsLikes.reduce((likes, pokemonLike) => {
+            if (pokemonLike?.pokemonId) {
+              return {
+                ...likes,
+                [pokemonLike.pokemonId]: pokemonLike,
+              }
+            }
+            return likes
+          }, {} as Record<number, PokemonLikesViewModel>)
+        )
+      }
+    }
+  }, [pokemons])
+
+  const handleLikePokemon = useCallback(
+    async (id: string) => {
+      const pokemon = await likePokemon({ id })
+      setPokemonsLikes((prev) => ({
+        ...prev,
+        [id]: pokemon,
+      }))
+    },
+    [setPokemonsLikes]
+  )
+
+  const getPokemonLikes = useCallback(
+    (pokemon: PokemonViewModel) => {
+      if (pokemonsLikes) {
+        return pokemonsLikes[Number(pokemon.id)]?.likes ?? 0
+      }
+      return 0
+    },
+    [pokemonsLikes]
+  )
+
   return (
     <PokemonsContext.Provider
       value={{
@@ -94,6 +154,9 @@ export const PokemonsProvider = ({ children }: T.Props) => {
         count,
         pokemons,
         pokemonsDetails,
+        pokemonsLikes,
+        handleLikePokemon,
+        getPokemonLikes,
       }}
     >
       {children}

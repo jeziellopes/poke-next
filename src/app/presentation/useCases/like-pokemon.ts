@@ -1,3 +1,3 @@
-import { makePokemonsLoader } from '@/main/factories/usecases'
+import { makePokemonLiker } from '@/main/factories/usecases'
 
-export const loadPokemons = makePokemonsLoader().load
+export const likePokemon = makePokemonLiker().like
