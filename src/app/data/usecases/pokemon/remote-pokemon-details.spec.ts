@@ -3,6 +3,7 @@ import {
   HttpGetClientSpy,
   mockPokemonDetailsResponse,
   mockPokemonDetailsResult,
+  mockUrl,
 } from '@/data/test'
 import { RemotePokemonDetails } from '@/data/usecases'
 import { InternalServerError, UnexpectedError } from '@/domain/errors'
@@ -25,14 +26,14 @@ const makeSut = (url = 'any_url'): SutTypes => {
 
 describe('RemotePokemonDetails', () => {
   test('Should call HttpClient with correct URL', async () => {
-    const url = 'other_url'
+    const url = mockUrl()
     const { sut, httpGetClientSpy, pokemonLoadParams } = makeSut(url)
     await sut.load(pokemonLoadParams)
     expect(httpGetClientSpy.url).toBe(`${url}/1`)
   })
 
   test('Should throw InternalServerError when HttpGetClient return statusCode 500', async () => {
-    const url = 'other_url'
+    const url = mockUrl()
     const { sut, httpGetClientSpy, pokemonLoadParams } = makeSut(url)
     httpGetClientSpy.response = {
       statusCode: HttpStatusCode.server_error,
@@ -42,7 +43,7 @@ describe('RemotePokemonDetails', () => {
   })
 
   test('Should throw UnexpectedError when HttpGetClient return statusCode 400', async () => {
-    const url = 'other_url'
+    const url = mockUrl()
     const { sut, httpGetClientSpy, pokemonLoadParams } = makeSut(url)
     httpGetClientSpy.response = {
       statusCode: HttpStatusCode.badRequest,

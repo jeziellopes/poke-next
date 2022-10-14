@@ -1,3 +1,5 @@
 export * from './mock-http-client'
 export * from './mock-pokemon'
 export * from './mock-pokemon-likes'
+export * from './mock-pokemon-liker'
+export * from './mock-url'
