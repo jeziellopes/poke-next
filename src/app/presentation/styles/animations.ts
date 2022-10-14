@@ -1,4 +1,4 @@
-import { css, Keyframes, keyframes } from 'styled-components'
+import { css } from 'styled-components'
 
 /**
  * Default fade animations for the project
@@ -55,13 +55,19 @@ export const colorAnimations = css`
 /**
  * Default spin animations for the project
  */
+export const spinAnimations = css`
+  animation-duration: 1000ms;
+  animation-iteration-count: infinite;
+  animation-name: spin;
+  animation-timing-function: linear;
 
-export const spin: Keyframes = keyframes`
-  from {
-    transform:rotate(0deg);
-  }
+  @keyframes spin {
+    from {
+      transform: rotate(0deg);
+    }
 
-  to {
-    transform:rotate(360deg);
+    to {
+      transform: rotate(360deg);
+    }
   }
 `

@@ -1,7 +1,8 @@
-import styled from 'styled-components'
+import styled, { css } from 'styled-components'
 
 type Props = {
   size?: number
+  animated?: boolean
 }
 
 export const IconWrapper = styled.div<Props>`
@@ -17,9 +18,13 @@ export const IconWrapper = styled.div<Props>`
     transition: transform 0.2s cubic-bezier(0.215, 0.61, 0.355, 1);
   }
 
-  &:hover {
-    svg {
-      transform: rotate(180deg);
-    }
-  }
+  ${({ animated }) =>
+    animated &&
+    css`
+      &:hover {
+        svg {
+          transform: rotate(180deg);
+        }
+      }
+    `}
 `

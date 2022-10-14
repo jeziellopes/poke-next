@@ -13,7 +13,7 @@ export default function Home() {
 
       <Main>
         <Header>
-          <PokeBallIcon size={40} />
+          <PokeBallIcon size={40} animated />
           <Title>Poke-Next</Title>
           <a
             href="https://github.com/jeziellopes/poke-next"

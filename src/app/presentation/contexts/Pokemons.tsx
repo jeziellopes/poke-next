@@ -1,3 +1,4 @@
+import { PokemonDetailsModel } from '@/domain/models'
 import { POKEMONS_PER_PAGE_LIMIT } from '@/main/config'
 import { usePaginationContext } from '@/presentation/contexts/Pagination'
 import * as T from '@/presentation/types'
@@ -25,7 +26,7 @@ export type PokemonsContextType = {
   loading: boolean
   count: number
   pokemons: PokemonViewModel[] | null
-  pokemonsDetails: PokemonViewModel[] | null
+  pokemonsDetails: Record<number, PokemonDetailsModel> | null
   pokemonsLikes: Record<number, PokemonLikesViewModel> | null
   handleLikePokemon: (id: string) => void
   getPokemonLikes: (pokemon: PokemonViewModel) => number
@@ -47,9 +48,10 @@ export const PokemonsProvider = ({ children }: T.Props) => {
   const [loading, setLoading] = useState(false)
   const [count, setCount] = useState(0)
   const [pokemons, setPokemons] = useState<PokemonViewModel[] | null>(null)
-  const [pokemonsDetails, setPokemonsDetails] = useState<
-    PokemonViewModel[] | null
-  >(null)
+  const [pokemonsDetails, setPokemonsDetails] = useState<Record<
+    number,
+    PokemonDetailsModel
+  > | null>(null)
   const [pokemonsLikes, setPokemonsLikes] = useState<Record<
     number,
     PokemonLikesViewModel
@@ -75,7 +77,12 @@ export const PokemonsProvider = ({ children }: T.Props) => {
     fetchPokemons()
   }, [offset])
 
+  const finishLoading = () => setTimeout(() => setLoading(false), 250)
+
   const fetchPokemons = useCallback(async () => {
+    setLoading(true)
+    setPokemons(null)
+    setPokemonsDetails(null)
     loadPokemons({ offset, limit })
       .then((data) => {
         setCount(data.count)
@@ -87,7 +94,7 @@ export const PokemonsProvider = ({ children }: T.Props) => {
         )
       })
       .catch(() => setError(true))
-      .finally(() => setLoading(false))
+      .finally(() => finishLoading())
   }, [offset])
 
   useEffect(() => {
@@ -97,11 +104,25 @@ export const PokemonsProvider = ({ children }: T.Props) => {
 
   const fetchPokemonsDetails = useCallback(async () => {
     if (pokemons) {
-      const allPokemonsDetails = await Promise.all(
+      setLoading(true)
+      const loadAllPokemonsDetails = Promise.all(
         pokemons.map(({ id, name }) => loadPokemonsDetails({ id, name }))
       )
 
-      setPokemonsDetails(allPokemonsDetails)
+      loadAllPokemonsDetails
+        .then((allPokemonsDetails) =>
+          setPokemonsDetails(
+            allPokemonsDetails.reduce(
+              (pokemonDetails, pokemon) => ({
+                ...pokemonDetails,
+                [pokemon.id]: pokemon,
+              }),
+              {} as Record<number, PokemonDetailsModel>
+            )
+          )
+        )
+        .catch(() => setError(true))
+        .finally(() => finishLoading())
     }
   }, [pokemons])
 

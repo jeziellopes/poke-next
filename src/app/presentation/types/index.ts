@@ -19,6 +19,8 @@ export type ButtonProps = {
 export type IconProps = {
   size?: number
   color?: string
+  reload?: boolean
+  animated?: boolean
 }
 
 export type CardProps = {

@@ -24,7 +24,7 @@ export const PokemonCard = ({
           <S.HeaderText>{`#${id}`}</S.HeaderText>
           <S.HeaderText bgColor={types && pokemonsColors[types[0]].light}>
             {likes}&nbsp;
-            <HeartIcon size={13} />
+            <HeartIcon size={17} />
           </S.HeaderText>
         </S.CardHeader>
         <S.Image src={imageUrl} alt="Card image" />

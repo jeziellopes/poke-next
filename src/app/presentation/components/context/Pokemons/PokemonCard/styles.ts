@@ -98,8 +98,8 @@ export const HeaderText = styled.span<StyledProps>`
     color: ${color || theme.colors.main.light};
     display: flex;
     font-family: ${theme.font.primary};
-    font-size: 10px;
-    font-weight: 500;
+    font-size: 12px;
+    font-weight: 700;
     margin: 8px 0;
     padding: 4px;
   `}

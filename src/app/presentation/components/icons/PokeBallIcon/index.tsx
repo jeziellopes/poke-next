@@ -3,9 +3,9 @@ import React from 'react'
 
 import * as S from './styles'
 
-const Icon = ({ size, ...props }: IconProps) => {
+const Icon = ({ size, animated, ...props }: IconProps) => {
   return (
-    <S.IconWrapper size={80}>
+    <S.IconWrapper size={80} animated={animated}>
       <svg
         data-testid="poke-ball-icon"
         xmlns="http://www.w3.org/2000/svg"
