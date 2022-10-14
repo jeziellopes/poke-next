@@ -24,7 +24,7 @@ export const InfoWrapper = styled.div`
   ${({ theme }) => css`
     background: ${theme.colors.main.light};
     border-radius: 0px 0px 4px 4px;
-    height: 35%;
+    height: 30%;
     padding: 8px 16px;
     width: 100%;
   `}
@@ -50,7 +50,7 @@ export const ImageWrapper = styled.div`
   align-items: center;
   display: flex;
   flex-direction: column;
-  height: 65%;
+  height: 70%;
   justify-content: center;
 `
 

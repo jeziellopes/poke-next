@@ -1,4 +1,3 @@
-import { PokemonDetailsModel } from '@/domain/models'
 import { POKEMONS_PER_PAGE_LIMIT } from '@/main/config'
 import { usePaginationContext } from '@/presentation/contexts/Pagination'
 import * as T from '@/presentation/types'
@@ -26,7 +25,7 @@ export type PokemonsContextType = {
   loading: boolean
   count: number
   pokemons: PokemonViewModel[] | null
-  pokemonsDetails: Record<number, PokemonDetailsModel> | null
+  pokemonsDetails: Record<number, PokemonViewModel> | null
   pokemonsLikes: Record<number, PokemonLikesViewModel> | null
   handleLikePokemon: (id: string) => void
   getPokemonLikes: (pokemon: PokemonViewModel) => number
@@ -50,7 +49,7 @@ export const PokemonsProvider = ({ children }: T.Props) => {
   const [pokemons, setPokemons] = useState<PokemonViewModel[] | null>(null)
   const [pokemonsDetails, setPokemonsDetails] = useState<Record<
     number,
-    PokemonDetailsModel
+    PokemonViewModel
   > | null>(null)
   const [pokemonsLikes, setPokemonsLikes] = useState<Record<
     number,
@@ -117,7 +116,7 @@ export const PokemonsProvider = ({ children }: T.Props) => {
                 ...pokemonDetails,
                 [pokemon.id]: pokemon,
               }),
-              {} as Record<number, PokemonDetailsModel>
+              {} as Record<number, PokemonViewModel>
             )
           )
         )

@@ -1,3 +1,4 @@
+import { PokemonViewModel } from '@/presentation/view-models'
 import { DefaultTheme } from 'styled-components'
 
 export type Pokemon = {
@@ -8,6 +9,7 @@ export type Pokemon = {
 
 export type Props = {
   children?: React.ReactNode
+  onClick?: () => void
 }
 
 export type ButtonProps = {
@@ -31,7 +33,7 @@ export type CardProps = {
 }
 
 export type PokemonCardProps = {
-  id: string
+  id?: string
   title: string
   types?: string[]
   imageUrl: string
@@ -44,6 +46,25 @@ export type PokemonCardProps = {
   }
   likes?: number
   onClick?: () => void
+  onLike?: () => void
+}
+
+export type PokemonPanelProps = {
+  id: string
+  title: string
+  types?: string[]
+  imageUrl: string
+  height?: number
+  width?: number
+  url?: string
+  colors?: {
+    light: string
+    medium: string
+  }
+  likes?: number
+  pokemon?: PokemonViewModel
+  onClick?: () => void
+  onLike?: () => void
 }
 
 export type StyledProps = {

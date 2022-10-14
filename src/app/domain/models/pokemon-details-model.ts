@@ -5,7 +5,7 @@ export type PokemonDetailsModel = {
   abilities?: string[]
   base_experience?: number
   height?: number
-  stats?: any
+  stats?: string[]
   types?: string[]
   weight?: number
 }

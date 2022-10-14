@@ -6,5 +6,9 @@ export const Container = styled.div`
   display: flex;
   height: 40px;
   justify-content: center;
-  margin: 16px 16px 24px;
+  margin: 24px;
+
+  @media only screen and (max-width: 500px) {
+    margin: 40px;
+  }
 `

@@ -74,3 +74,9 @@ export const pokemonsColors: PokemonTypeColors = {
     medium: '#EE99AC',
   },
 }
+
+export const getPokemonLightColor = (types: string[] | undefined) =>
+  types && pokemonsColors[types[0]].light
+
+export const getPokemonMediumColor = (types: string[] | undefined) =>
+  types && pokemonsColors[types[0]].medium

@@ -14,7 +14,7 @@ export const PokemonCard = ({
   types,
   imageUrl,
   likes,
-  onClick,
+  onLike,
   ...props
 }: PokemonCardProps) => {
   return (
@@ -33,7 +33,7 @@ export const PokemonCard = ({
         <S.Row>
           <S.Title>{capitalize(title)}</S.Title>
           <S.LikeContainer>
-            <S.LikeButton onClick={onClick}>
+            <S.LikeButton onClick={onLike}>
               <LikeIcon
                 size={40}
                 color={types && pokemonsColors[types[0]].light}
