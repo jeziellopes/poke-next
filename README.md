@@ -4,7 +4,7 @@ Poke-Next is a __Next.js__ app to list and view __pokémon's__ information.
 
 This project uses __ESLint, Prettier, Jest, React Testing Library, TypeScript, Husky__.
 
-## Setup docker Environment
+## Setup Docker Environment
 ```bash
 # One time run
 docker-compose up -d --build
@@ -18,7 +18,13 @@ docker-compose up -d --build --force-recreate --remove-orphans
 
 ```bash
 # Generate Prisma Client 
-yarn prisma:generate
+yarn prisma generate
+
+# Migrate Prism Database 
+yarn prisma migrate dev --name init
+
+# Reset Prisma Migrations
+yarn prisma migrate reset
 ```
 
 ## Run Jest Tests
