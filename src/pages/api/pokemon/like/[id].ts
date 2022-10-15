@@ -9,6 +9,6 @@ export default async (req: NextApiRequest, res: NextApiResponse) => {
     const data = await pokemonLikerService.like(params)
     res.status(200).json(data)
   } catch (error) {
-    res.status(400).json({ error: error.message })
+    res.status(500).json({ error })
   }
 }
