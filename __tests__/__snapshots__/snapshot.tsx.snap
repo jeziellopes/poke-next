@@ -124,6 +124,10 @@ exports[`renders homepage unchanged 1`] = `
   width: 100%;
 }
 
+.c6 div {
+  margin-right: 16px;
+}
+
 .c6 svg {
   -webkit-animation-duration: 1000ms;
   animation-duration: 1000ms;

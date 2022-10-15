@@ -12,6 +12,8 @@ export const IconWrapper = styled.div<Props>`
   height: ${({ size }) => size}px;
   justify-content: center;
 
+  margin-right: 16px;
+
   svg {
     transition: transform 0.2s cubic-bezier(0.215, 0.61, 0.355, 1);
   }
