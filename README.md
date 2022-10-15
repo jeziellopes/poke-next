@@ -4,8 +4,10 @@ Poke-Next is a __Next.js__ app to list and view __pokémon's__ information.
 
 This project uses __TypeScript, Styled-Components, ESLint, Prettier, Husky, Jest, React Testing Library, Docker, PostgreSQL and Prisma ORM__.
 
-![Screen](./poke-next.gif)
-
+|         Mobile Layout           |       Desktop Layout       |
+:--------------------------------:|:---------------------------:
+![Screen](./poke-next-mobile.gif) | ![Screen](./poke-next.gif) |
+ 
 ## Setup Docker Environment (production)
 ```bash
 # One time run
