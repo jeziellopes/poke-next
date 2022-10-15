@@ -13,7 +13,9 @@
     "test:staged": "npm test --findRelatedTests",
     "lint": "eslint src",
     "lint:fix": "eslint --fix src",
-    "prepare": "husky install"
+    "prepare": "husky install",
+    "prisma:deploy": "prisma generate --schema ./prisma/schema.prisma && prisma migrate deploy",
+    "start:prod": "yarn prisma:deploy && yarn start"
   },
   "dependencies": {
     "axios": "^1.1.2",
@@ -21,12 +23,12 @@
     "next": "latest",
     "react": "^18.1.0",
     "react-dom": "^18.1.0",
-    "styled-components": "^5.3.6"
+    "styled-components": "^5.3.6",
+    "@prisma/client": "^4.4.0"
   },
   "devDependencies": {
     "@faker-js/faker": "^7.5.0",
     "@next/eslint-plugin-next": "^12.3.1",
-    "@prisma/client": "^4.4.0",
     "@testing-library/dom": "^8.19.0",
     "@testing-library/jest-dom": "5.16.4",
     "@testing-library/react": "^13.4.0",

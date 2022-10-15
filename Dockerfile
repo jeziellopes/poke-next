@@ -27,4 +27,7 @@ ENV NODE_ENV=production
 COPY --from=builder /opt/app/public ./public
 COPY --from=builder /opt/app/.next ./.next
 COPY --from=builder /opt/app/node_modules ./node_modules
-CMD ["node_modules/.bin/next", "start"]
+COPY package.json ./
+COPY prisma ./prisma/
+
+CMD ["npm", "run", "start:prod"]

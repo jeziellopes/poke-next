@@ -6,7 +6,7 @@ This project uses __TypeScript, Styled-Components, ESLint, Prettier, Husky, Jest
 
 ![Screen](./poke-next.gif)
 
-## Setup Docker Environment
+## Setup Docker Environment (production)
 ```bash
 # One time run
 docker-compose up -d --build
@@ -16,20 +16,20 @@ docker-compose up -d --build --force-recreate --remove-orphans
 
 # App will run on http://localhost:3000
 ```
-## Setup Prisma Environment
+## Setup Prisma Environment (development)
 
 ```bash
 # Generate Prisma Client 
 yarn prisma generate
 
-# Migrate Prism Database 
+# Migrate Prisma Database 
 yarn prisma migrate dev --name init
 
 # Reset Prisma Migrations
 yarn prisma migrate reset
 ```
 
-## Run Jest Tests
+## Run Tests (development)
 
 ```bash
 # install dependencies
@@ -42,9 +42,12 @@ yarn test
 yarn test:coverage
 ```
 
-## Run Locally (if needed)
+## Run App Locally (development)
 
 ```bash
+# start db container
+docker-compose up -d --build postgres
+
 # install dependencies
 yarn
 
