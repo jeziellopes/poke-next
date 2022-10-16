@@ -5,16 +5,21 @@ import { usePokemonsContext } from '@/presentation/contexts'
 import { getPokemonImgUrl } from '@/presentation/utils'
 import Head from 'next/head'
 import { useRouter } from 'next/router'
-import React from 'react'
+import React, { useEffect } from 'react'
 
-export default function Home() {
+export default function PokemonDetailsPage() {
   const router = useRouter()
   const { id } = router.query
+  const {
+    getPokemonById,
+    getPokemonLikes,
+    handleLikePokemon,
+    fetchPokemonDetails,
+  } = usePokemonsContext()
 
-  const { pokemonsDetails, getPokemonLikes, handleLikePokemon } =
-    usePokemonsContext()
+  useEffect(() => fetchPokemonDetails(String(id)))
 
-  const pokemon = pokemonsDetails && pokemonsDetails[Number(id)]
+  const pokemon = getPokemonById(id)
 
   return (
     <>
