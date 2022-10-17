@@ -27,8 +27,12 @@ export type PokemonsContextType = {
   pokemons: PokemonViewModel[] | null
   pokemonsDetails: Record<number, PokemonViewModel> | null
   pokemonsLikes: Record<number, PokemonLikesViewModel> | null
+  getPokemonById: (
+    id: string | string[] | undefined
+  ) => PokemonViewModel | undefined
   handleLikePokemon: (id: string) => void
   getPokemonLikes: (pokemon: PokemonViewModel) => number
+  fetchPokemonDetails: (id: string) => void
 }
 
 export const PokemonsContext = createContext<PokemonsContextType>({
@@ -38,8 +42,10 @@ export const PokemonsContext = createContext<PokemonsContextType>({
   pokemons: null,
   pokemonsDetails: null,
   pokemonsLikes: null,
+  getPokemonById: () => undefined,
   handleLikePokemon: () => undefined,
   getPokemonLikes: () => 0,
+  fetchPokemonDetails: () => undefined,
 })
 
 export const PokemonsProvider = ({ children }: T.Props) => {
@@ -76,7 +82,10 @@ export const PokemonsProvider = ({ children }: T.Props) => {
     fetchPokemons()
   }, [offset])
 
-  const finishLoading = () => setTimeout(() => setLoading(false), 250)
+  const finishLoading = () => setTimeout(() => setLoading(false), 500)
+
+  const getPokemonById = (id: string | string[] | undefined) =>
+    (pokemonsDetails || [])[Number(id)]
 
   const fetchPokemons = useCallback(async () => {
     setLoading(true)
@@ -100,6 +109,24 @@ export const PokemonsProvider = ({ children }: T.Props) => {
     fetchPokemonsDetails()
     fetchPokemonsLikes()
   }, [pokemons])
+
+  const fetchPokemonDetails = useCallback(
+    (id: string) => {
+      if (!id || !pokemonsDetails) return
+      if ((pokemonsDetails || [])[Number(id)]) return
+      setLoading(true)
+      loadPokemonsDetails({ id, name: '' })
+        .then((pokemonDetails) => {
+          setPokemonsDetails((prev) => ({
+            ...prev,
+            [id]: pokemonDetails as PokemonViewModel,
+          }))
+        })
+        .catch(() => setError(true))
+        .finally(() => finishLoading())
+    },
+    [pokemonsDetails]
+  )
 
   const fetchPokemonsDetails = useCallback(async () => {
     if (pokemons) {
@@ -175,8 +202,10 @@ export const PokemonsProvider = ({ children }: T.Props) => {
         pokemons,
         pokemonsDetails,
         pokemonsLikes,
+        getPokemonById,
         handleLikePokemon,
         getPokemonLikes,
+        fetchPokemonDetails,
       }}
     >
       {children}

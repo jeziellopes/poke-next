@@ -104,6 +104,36 @@ exports[`renders homepage unchanged 1`] = `
   transition: transform 0.2s cubic-bezier(0.215,0.61,0.355,1);
 }
 
+.c11 {
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+}
+
+.c12 {
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+}
+
 .c6 {
   -webkit-align-items: center;
   -webkit-box-align: center;
@@ -142,6 +172,79 @@ exports[`renders homepage unchanged 1`] = `
 .c5 {
   margin-top: 80px;
   width: 100%;
+}
+
+.c10 {
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  background-color: #fff;
+  border-radius: 4px;
+  box-shadow: 0px 0px 4px 1px rgba(0,0,0,0.1);
+  cursor: pointer;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  font-family: 'Roboto Mono';
+  font-size: 12px;
+  height: 40px;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  margin: 0 4px;
+  padding: 2px;
+  width: 40px;
+}
+
+.c10:hover {
+  box-shadow: 0px 0px 4px 2px rgba(0,0,0,0.1);
+}
+
+.c10:active {
+  box-shadow: 0px 0px 4px 2px rgba(0,0,0,0.1);
+  font-size: 11px;
+  -webkit-transform: scale(0.95);
+  -ms-transform: scale(0.95);
+  transform: scale(0.95);
+}
+
+.c9 {
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  border-radius: 8px;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  height: 40px;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  margin: 24px;
+}
+
+.c8 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  width: 100vw;
+}
+
+@media only screen and (max-width:500px) {
+  .c9 {
+    margin: 40px;
+  }
 }
 
 <div>
@@ -262,6 +365,57 @@ exports[`renders homepage unchanged 1`] = `
                 fill="#000"
               />
             </svg>
+          </div>
+        </div>
+        <div
+          class="c8"
+        >
+          <div
+            class="c9"
+          >
+            <button
+              class="c10"
+              disabled=""
+            >
+              <div
+                class="c11"
+              >
+                <svg
+                  data-testid="prev-icon"
+                  fill="none"
+                  height="10"
+                  viewBox="0 0 17 17"
+                  width="10"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M12.17 17c-.684 0-1.347-.23-1.878-.652l-7.366-5.963a2.416 2.416 0 01-.682-.838 2.37 2.37 0 010-2.092c.16-.326.393-.613.682-.838L10.292.653a3.086 3.086 0 013.192-.368 2.53 2.53 0 011.095.907c.27.4.415.867.421 1.345v11.927a2.46 2.46 0 01-.42 1.345c-.27.4-.65.715-1.097.908-.412.184-.86.28-1.314.283z"
+                    fill="#000"
+                  />
+                </svg>
+              </div>
+            </button>
+            <button
+              class="c10"
+            >
+              <div
+                class="c12"
+              >
+                <svg
+                  data-testid="next-icon"
+                  fill="none"
+                  height="10"
+                  viewBox="0 0 17 17"
+                  width="10"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M4.83 17c.684 0 1.347-.23 1.878-.652l7.366-5.963c.289-.226.522-.512.682-.838a2.37 2.37 0 000-2.092 2.417 2.417 0 00-.682-.838L6.708.653A3.086 3.086 0 003.516.285a2.53 2.53 0 00-1.095.907A2.46 2.46 0 002 2.537v11.927c.006.479.152.946.42 1.345.27.4.65.715 1.096.908.413.184.861.28 1.315.283z"
+                    fill="#000"
+                  />
+                </svg>
+              </div>
+            </button>
           </div>
         </div>
       </div>
