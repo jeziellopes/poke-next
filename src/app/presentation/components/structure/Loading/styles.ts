@@ -9,10 +9,6 @@ export const Container = styled.div`
   justify-content: center;
   width: 100%;
 
-  div {
-    margin-right: 16px;
-  }
-
   svg {
     ${spinAnimations}
   }
